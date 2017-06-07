@@ -58,7 +58,6 @@ def monitor(rank, args, shared_model):
             # reset
             reward_sum = 0
             episode_length = 0
-            actions.clear()
             state = env.reset()
             time.sleep(60)
             
