@@ -1,7 +1,7 @@
 # a3c
 
-使用PyTorch實作a3c演算法，參考了openai/universe-starter-agen以tensorflow實作的版本，以及ikostrikov/pytorch-a3c以PyTorch實作的版本。  
-以ikostrikov為主要參考，加上自行修改的一些部分，並以盡量精簡行數、寫出容易理解的code為目標。
+<sub>使用PyTorch實作a3c演算法，參考了openai/universe-starter-agen以tensorflow實作的版本，以及ikostrikov/pytorch-a3c以PyTorch實作的版本。  
+以ikostrikov為主要參考，加上自行修改的一些部分，並以盡量精簡行數、寫出容易理解的code為目標。</sub>
 
 # Dependencies
 
