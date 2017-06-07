@@ -8,13 +8,14 @@ from a3c import ActorCritic
 import time
 from collections import deque
 
-
+from gym import wrappers
 
 
 # 從shared_model拉參數下來，看看目前model學得如何
 def test(rank, args, shared_model):
     
     env = create_atari_env(args.env_name)
+    env = wrappers.Monitor(env, './video/pong-a3c', video_callable=lambda count: count % 10 == 0, force=True)
     
     model = ActorCritic(env.observation_space.shape[0], env.action_space)
     
@@ -32,6 +33,7 @@ def test(rank, args, shared_model):
     # 簡單設置防agent卡住的機制，如果連續N步都走一樣的action，則直接termial
     actions = deque(maxlen=100)
     while True:
+        env.render()
         episode_length += 1
         # Sync with the shared model
         if done:
