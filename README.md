@@ -1,8 +1,7 @@
 # a3c
 
-<small>使用PyTorch實作a3c演算法，參考了openai/universe-starter-agen以tensorflow實作的版本，以及ikostrikov/pytorch-a3c以PyTorch實作的版本。</small>
-
-<small>以ikostrikov為主要參考，加上自行修改的一些部分，並以盡量精簡行數、寫出容易理解的code為目標。</small>
+####使用PyTorch實作a3c演算法，參考了openai/universe-starter-agen以tensorflow實作的版本，以及ikostrikov/pytorch-a3c以PyTorch實作的版本。  
+####以ikostrikov為主要參考，加上自行修改的一些部分，並以盡量精簡行數、寫出容易理解的code為目標。
 
 # Dependencies
 
@@ -34,8 +33,6 @@ xvfb-run -s "-screen 0 1400x900x24" python main.py --env-name "Pong-v0" --num-pr
 
 # References
 
-[Asynchronous Methods for Deep Reinforcement Learning](https://arxiv.org/abs/1602.01783)
-
-[openai/universe-starter-agen](https://github.com/openai/universe-starter-agent)
-
+[Asynchronous Methods for Deep Reinforcement Learning](https://arxiv.org/abs/1602.01783)  
+[openai/universe-starter-agen](https://github.com/openai/universe-starter-agent)  
 [ikostrikov/pytorch-a3c](https://github.com/ikostrikov/pytorch-a3c)
