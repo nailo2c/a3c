@@ -11,7 +11,7 @@ from gym import wrappers
 
 
 # 從shared_model拉參數下來，看看目前model學得如何
-def test(rank, args, shared_model):
+def monitor(rank, args, shared_model):
     
     env = create_atari_env(args.env_name)
     env = wrappers.Monitor(env, './video/pong-a3c', video_callable=lambda count: count % 30 == 0, force=True)

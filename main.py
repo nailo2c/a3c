@@ -10,7 +10,7 @@ import torch.nn.functional as F
 from envs import create_atari_env
 from a3c import ActorCritic, SharedAdam
 from actor import actor
-from test import test
+from monitor import monitor
 
 
 parser = argparse.ArgumentParser(description='A3C')
@@ -61,8 +61,8 @@ if __name__ == '__main__':
 
     processes = []
 
-    # test, 用來觀察目前model的訓練情況
-    p = mp.Process(target=test, args=(args.num_processes, args, shared_model))
+    # monitor, 用來觀察目前model的訓練情況
+    p = mp.Process(target=monitor, args=(args.num_processes, args, shared_model))
     p.start()
     processes.append(p)
 
