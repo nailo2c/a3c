@@ -5,6 +5,7 @@
 
 # Dependencies
 
+* Python 3.6
 * Anaconda
 * PyTorch
 
