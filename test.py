@@ -6,7 +6,6 @@ from envs import create_atari_env
 from a3c import ActorCritic
 
 import time
-from collections import deque
 
 from gym import wrappers
 
@@ -15,7 +14,7 @@ from gym import wrappers
 def test(rank, args, shared_model):
     
     env = create_atari_env(args.env_name)
-    env = wrappers.Monitor(env, './video/pong-a3c', video_callable=lambda count: count % 10 == 0, force=True)
+    env = wrappers.Monitor(env, './video/pong-a3c', video_callable=lambda count: count % 30 == 0, force=True)
     
     model = ActorCritic(env.observation_space.shape[0], env.action_space)
     
@@ -30,8 +29,6 @@ def test(rank, args, shared_model):
     done = True
     start_time = time.time()
     
-    # 簡單設置防agent卡住的機制，如果連續N步都走一樣的action，則直接termial
-    actions = deque(maxlen=100)
     while True:
         env.render()
         episode_length += 1
@@ -53,12 +50,6 @@ def test(rank, args, shared_model):
         state, reward, done, _ = env.step(action[0][0])
         done = done or episode_length >= args.max_episode_length
         reward_sum += reward
-        
-        # 如果連續N步action相同，則終止
-        actions.append(action[0][0])
-        if actions.count(actions[0]) == actions.maxlen:
-            done = True
-        
         
         if done:
             print("Time {}, episode reward {}, episode length {}".format(
