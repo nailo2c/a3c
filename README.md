@@ -39,6 +39,7 @@ xvfb-run -s "-screen 0 1400x900x24" python main.py --env-name "Pong-v0" --num-pr
 # Result
 
 使用16顆cpu在GCP上跑2個小時。
+
 ![](img/a3c-pong.gif)
 
 # References
