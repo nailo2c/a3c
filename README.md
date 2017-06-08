@@ -32,6 +32,10 @@ sudo apt-get install -y python-numpy python-dev cmake zlib1g-dev libjpeg-dev xvf
 xvfb-run -s "-screen 0 1400x900x24" python main.py --env-name "Pong-v0" --num-processes 16
 ```
 
+# Architecture
+
+![](img/code-architecture.png)
+
 # References
 
 [Asynchronous Methods for Deep Reinforcement Learning](https://arxiv.org/abs/1602.01783)  
