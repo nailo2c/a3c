@@ -36,6 +36,11 @@ xvfb-run -s "-screen 0 1400x900x24" python main.py --env-name "Pong-v0" --num-pr
 
 ![](img/code-architecture.png)
 
+# Result
+
+使用16顆cpu在GCP上跑2個小時。
+![](img/a3c-pong.gif)
+
 # References
 
 [Asynchronous Methods for Deep Reinforcement Learning](https://arxiv.org/abs/1602.01783)  
