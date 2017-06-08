@@ -29,8 +29,8 @@ parser.add_argument('--num-processes', type=int, default=4, metavar='NP',
                     help='how many training processes to use (default: 4)')
 parser.add_argument('--num-steps', type=int, default=20, metavar='NS',
                     help='number of forward steps in A3C (default: 20)')
-parser.add_argument('--max-episode-length', type=int, default=10000, metavar='M',
-                    help='maximun length of an episode (default: 10000)')
+parser.add_argument('--max-episode-length', type=int, default=100000, metavar='M',
+                    help='maximun length of an episode (default: 100000)')
 parser.add_argument('--env-name', default='Pong-v0', metavar='ENV',
                     help='environment to train on (default: Pong-v0)')
 
