@@ -8,6 +8,9 @@
 * Python 3.6
 * Anaconda
 * PyTorch
+* gym
+* gym[atari]
+* opencv-python
 
 # Getting Started
 
