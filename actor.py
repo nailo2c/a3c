@@ -110,6 +110,8 @@ def actor(rank, args, shared_model, optimizer):
         # 依據pytorch中gradient累加的特性，先將gradient歸零
         optimizer.zero_grad()
         
+        # a3c的loss是將兩個loss加起來的理由應該可看這篇論文
+        # https://arxiv.org/pdf/1704.06440.pdf
         (policy_loss + 0.5 * value_loss).backward()
         
         # 根據論文，實作gradient norm clipping以防止gradient explosion
