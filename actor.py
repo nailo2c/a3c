@@ -55,11 +55,11 @@ def actor(rank, args, shared_model, optimizer):
             # 計算entropy
             prob = F.softmax(logit)
             log_prob = F.log_softmax(logit)
-            entropy = -(log_prob * prob).sum(1)
+            entropy = -(log_prob * prob).sum(1, keepdim=True)
             entropies.append(entropy)
             
             # 從multinomial抽出各個action的機率，再依據該機率取出對應的log_prob
-            action = prob.multinomial().data
+            action = prob.multinomial(num_samples=1).data
             log_prob = log_prob.gather(1, Variable(action))
             
             # gym env step

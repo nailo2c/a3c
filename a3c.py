@@ -11,7 +11,7 @@ import torch.optim as optim
 def normalized_columns_initializer(weights, std=1.0):
     out = torch.randn(weights.size())
     # 除以norm 2，再乘以std來控制拉伸的長度
-    out *= std / torch.sqrt(out.pow(2).sum(1).expand_as(out))
+    out *= std / torch.sqrt(out.pow(2).sum(1, keepdim=True))
     return out
 
 
@@ -142,8 +142,8 @@ class SharedAdam(optim.Adam):
                 
                 denom = exp_avg_sq.sqrt().add_(group['eps'])
                 
-                bias_correction1 = 1 - beta1 ** state['step'][0]
-                bias_correction2 = 1 - beta2 ** state['step'][0]
+                bias_correction1 = 1 - beta1 ** state['step'].item()
+                bias_correction2 = 1 - beta2 ** state['step'].item()
                 step_size = group['lr'] * np.sqrt(bias_correction2) / bias_correction1
                 
                 # inplce mode of addcdiv
