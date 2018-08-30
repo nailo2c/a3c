@@ -23,6 +23,7 @@ source .bashrc
 conda install pytorch torchvision -c soumith
 conda install opencv
 conda install libgcc
+conda install -c conda-forge ffmpeg
 pip install gym[Atari]
 sudo apt-get update
 sudo apt-get install -y python-numpy python-dev cmake zlib1g-dev libjpeg-dev xvfb libav-tools xorg-dev python-opengl libboost-all-dev libsdl2-dev swig
@@ -33,7 +34,7 @@ sudo apt-get install -y python-numpy python-dev cmake zlib1g-dev libjpeg-dev xvf
 如果是跑在server上，需要依靠xvfb創造虛擬畫面支持rendering。
 
 ```
-xvfb-run -s "-screen 0 1400x900x24" python main.py --env-name "Pong-v0" --num-processes 16
+xvfb-run -s "-screen 0 1400x900x24" python main.py --env-name "Pong-v0" --num-processes 8
 ```
 
 # Architecture
@@ -42,7 +43,7 @@ xvfb-run -s "-screen 0 1400x900x24" python main.py --env-name "Pong-v0" --num-pr
 
 # Result
 
-使用16顆cpu在GCP上跑2個小時。
+使用8顆cpu在GCP上跑2個小時。
 
 ![](img/a3c-pong.gif)
 
