@@ -1,11 +1,11 @@
 # a3c
 
-[English](README.md) | [中文](README_zh.md)
+[English](README.md) | 中文
 
-An implementation of the A3C algorithm using PyTorch, referencing the TensorFlow implementation from `openai/universe-starter-agent` and the PyTorch implementation from `ikostrikov/pytorch-a3c`.  
-Based primarily on ikostrikov's work with some modifications, aiming to create concise and easily understandable code.
+使用PyTorch實作a3c演算法，參考了openai/universe-starter-agen以tensorflow實作的版本，以及ikostrikov/pytorch-a3c以PyTorch實作的版本。  
+以ikostrikov為主要參考，加上自行修改的一些部分，並以盡量精簡行數、寫出容易理解的code為目標。
 
-# Dependencies
+# 相依套件
 
 * Python 3.6
 * Anaconda
@@ -14,9 +14,9 @@ Based primarily on ikostrikov's work with some modifications, aiming to create c
 * gym[atari]
 * opencv-python
 
-# Getting Started
+# 開始使用
 
-The following instructions are based on Ubuntu 16.04 LTS environment. When installing Anaconda, press Enter and Yes for all prompts.
+以下以Ubuntu 16.04 LTS環境為準，安裝Anaconda時請一路Enter與Yes到底。
 
 ```
 wget https://repo.continuum.io/archive/Anaconda3-4.4.0-Linux-x86_64.sh
@@ -31,25 +31,25 @@ sudo apt-get update
 sudo apt-get install -y python-numpy python-dev cmake zlib1g-dev libjpeg-dev xvfb libav-tools xorg-dev python-opengl libboost-all-dev libsdl2-dev swig
 ```
 
-# Rendering on a server
+# 在伺服器上渲染
 
-When running on a server, you need to use xvfb to create a virtual display for rendering support.
+如果是跑在server上，需要依靠xvfb創造虛擬畫面支持rendering。
 
 ```
 xvfb-run -s "-screen 0 1400x900x24" python main.py --env-name "Pong-v0" --num-processes 8
 ```
 
-# Architecture
+# 架構
 
 ![](img/code-architecture.png)
 
-# Result
+# 結果
 
-Trained for 2 hours on GCP using 8 CPU cores.
+使用8顆cpu在GCP上跑2個小時。
 
 ![](img/a3c-pong.gif)
 
-# References
+# 參考資料
 
 [Asynchronous Methods for Deep Reinforcement Learning](https://arxiv.org/abs/1602.01783)  
 [openai/universe-starter-agen](https://github.com/openai/universe-starter-agent)  
